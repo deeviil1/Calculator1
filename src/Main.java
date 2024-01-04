@@ -1,57 +1,56 @@
 import java.util.Scanner;
 
 public class Main {
-     static int num;
-
-     static int num2;
-
-     static int result;
-
-     static char oper;
 
     public static void main(String[] args) {
-
+        Integer res = null;
 
         Scanner sc = new Scanner(System.in);
-        String string = sc.next();
-        String[] str = string.split("/, *, -, +");
-        if (string.contains("*")) {
-            oper = '*';
-        } else if (string.contains("/")) {
-            oper = '/';
 
-        } else if (string.contains("-")) {
-            oper = '-';
-        } else if (string.contains("+")) {
-            oper = '+';
+        while (true) {
+            String string = sc.nextLine();
+            if (string.equals("End")) {
 
-        }
-
-
-        num = Integer.parseInt(string);
-        num2 = Integer.parseInt(string);
-    }
-
-
-        public static void action ( int num, int num2, int result, char oper){
-
-            switch (oper) {
-                case '+':
-                    result = num + num2;
-                    break;
-                case '-':
-                    result = num - num2;
-                    break;
-                case '*':
-                    result = num * num2;
-                    break;
-                case '/':
-                    result = num / num2;
-                    break;
-
+                System.out.println("ПРиложение закончило свою работу");
+                break;
             }
+
+
+            String[] str = string.split(" ");
+
+
+            if (str[1].equals("+")) {
+                res = Integer.parseInt(str[0]) + Integer.parseInt(str[2]);
+            }
+            if (str[1].equals("-")) {
+                res = Integer.parseInt(str[0]) - Integer.parseInt(str[2]);
+            }
+            if (str[1].equals("*")) {
+                res = Integer.parseInt(str[0]) * Integer.parseInt(str[2]);
+            }
+            if (str[1].equals("/")) {
+                res = Integer.parseInt(str[0]) / Integer.parseInt(str[2]);
+            }
+
+            System.out.println(res);
+
+
         }
 
 
+
+
+
+
+        }
+
+
+
     }
+
+
+
+
+
+
 

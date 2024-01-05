@@ -8,7 +8,6 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-
         while (true) {
         String string = sc.nextLine();
             if (string.equals("End")) {
@@ -16,35 +15,37 @@ public class Main {
                 break;
             }
 
+            try{
 
             String[] str = string.split(" ");
-            try {
+
                 check(str);
 
 
+                if (str[1].equals("+")) {
+                    res = Integer.parseInt(str[0]) + Integer.parseInt(str[2]);
+
+                }
+
+                if (str[1].equals("-")) {
+                    res = Integer.parseInt(str[0]) - Integer.parseInt(str[2]);
+
+                }
+                if (str[1].equals("*")) {
+                    res = Integer.parseInt(str[0]) * Integer.parseInt(str[2]);
+                }
+                if (str[1].equals("/")) {
+                    res = Integer.parseInt(str[0]) / Integer.parseInt(str[2]);
 
 
-        if (str[1].equals("+")) {
-            res = Integer.parseInt(str[0]) + Integer.parseInt(str[2]);
 
-        }
+                }
 
-        if (str[1].equals("-")) {
-            res = Integer.parseInt(str[0]) - Integer.parseInt(str[2]);
-
-        }
-        if (str[1].equals("*")) {
-            res = Integer.parseInt(str[0]) * Integer.parseInt(str[2]);
-        }
-        if (str[1].equals("/")) {
-            res = Integer.parseInt(str[0]) / Integer.parseInt(str[2]);
-        }
-
-        System.out.println(res);
-
-        } catch (Exception e) {
-                System.out.println(e.getMessage());
-        }
+                System.out.println(res);
+            }
+         catch (Exception e) {
+             System.out.println(e.getMessage());
+         }
 
 
     }
@@ -56,12 +57,20 @@ public class Main {
         if (strings.length!=3){
             throw new Exception("Неверное количество символов");
         }
-        if (!"+-*/".equals(strings)){
-            throw new Exception("неверный арфметческий знак");
-        }
-        if ("12345678910".equals(strings)){
+
+        if (!"12345678910".contains(strings[0])){
             throw new Exception("символ не является числом");
         }
+        if (!"12345678910".contains(strings[2])) {
+            throw new Exception("введен неверный символ");
+        }
+        if (!"+-*/".contains(strings[1])){
+            throw new Exception("не является арифметическим действием");
+        }
+        if ("0".contains(strings[2])){
+            throw new Exception("Делить на 0 нельзя");
+        }
+
 
 
     }

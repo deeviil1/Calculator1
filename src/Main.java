@@ -7,8 +7,6 @@ public class Main {
         while (true) {
             try {
                 Scanner scanner = new Scanner(System.in);
-                System.out.println("Введите два римских или арабских числа");
-                System.out.println("Для завершения работы программы введите End");
                 String string = scanner.nextLine();
                 String[] str = string.split(" ");
                 if (string.equalsIgnoreCase("End")){

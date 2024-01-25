@@ -16,6 +16,7 @@ public class Main {
 
                 if (str.length !=3 ){
                     throw new Exception("Неверное выражение");
+
                 }
                 if (!"+-*/".contains(str[1])){
                     throw new Exception("Неверная операция");
@@ -27,6 +28,7 @@ public class Main {
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
+                break;
             }
         }
     }
